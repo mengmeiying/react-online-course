@@ -1,0 +1,11 @@
+.posts {
+    padding: 10px 20px;
+}
+
+.post:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.posts_list {
+    list-style-type: decimal;
+}
