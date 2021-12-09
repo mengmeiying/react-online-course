@@ -1,0 +1,28 @@
+.content {
+    grid-area: content;
+    
+    background-color:	#c6eee7;
+  }
+  
+  .img_wrapper {
+    height: 300px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/68/England_-_English_Summer_Forest_%287183018142%29.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .personal_card {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+  }
+  
+  .personal_photo {
+    margin-right: 30px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .posts {
+    padding: 10px 20px;
+  }

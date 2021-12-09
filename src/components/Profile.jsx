@@ -1,9 +1,11 @@
+import classes from "./Profile.module.css";
+
 const Profile = () => {
     return (
-      <div className="content">
-        <div className="img-wrapper"></div>
-      <div className="personal-card">
-        <img className="personal-photo" src="https://www.pngarts.com/files/11/Avatar-PNG-Download-Image.png" alt="" />
+      <div className={classes.content}>
+        <div className={classes.img_wrapper}></div>
+      <div className={classes.personal_card}>
+        <img className={classes.personal_photo} src="https://www.pngarts.com/files/11/Avatar-PNG-Download-Image.png" alt="" />
         <div>
           <h2>Dude H.</h2>
           <ul>
@@ -14,7 +16,7 @@ const Profile = () => {
           </ul>
         </div>
       </div>
-      <div className="posts">
+      <div className={classes.posts}>
           <h2>My posts:</h2>
           <div>new post</div>
           <ul>
