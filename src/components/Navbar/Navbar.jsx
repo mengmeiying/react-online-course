@@ -1,14 +1,14 @@
-import classes from "./Navbar.module.css";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
     return (
-        <nav className={classes.nav}>
-        <ul className={classes.list}>
-          <li><a className={classes.link} href="#">Profile</a></li>
-          <li><a className={classes.link} href="#">Messages</a></li>
-          <li><a className={classes.link} href="#">News</a></li>
-          <li><a className={classes.link} href="#">Music</a></li>
-          <li><a className={classes.link} href="#">Settings</a></li>
+        <nav className={styles.nav}>
+        <ul className={styles.list}>
+          <li><a className={styles.link} href="#">Profile</a></li>
+          <li><a className={styles.link} href="#">Messages</a></li>
+          <li><a className={styles.link} href="#">News</a></li>
+          <li><a className={styles.link} href="#">Music</a></li>
+          <li><a className={styles.link} href="#">Settings</a></li>
         </ul>
       </nav>
     )
