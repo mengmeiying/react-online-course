@@ -1,26 +1,16 @@
 import Posts from "./MyPosts/Posts";
 import styles from "./Profile.module.css";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
 const Profile = () => {
-    return (
-      <div>
-        <div className={styles.img_wrapper}></div>
-      <div className={styles.personal_card}>
-        <img className={styles.personal_photo} src="https://www.pngarts.com/files/11/Avatar-PNG-Download-Image.png" alt="" />
-        <div>
-          <h2>Dude H.</h2>
-          <ul>
-            <li>Date of birth: January, 2</li>
-            <li>City: Moscow</li>
-            <li>Education: BSU11</li>
-            <li>Web-site: none</li>
-          </ul>
-        </div>
-      </div>
+  return (
+    <div>
+      <div className={styles.img_wrapper}></div>
+      <ProfileInfo src="https://www.pngarts.com/files/11/Avatar-PNG-Download-Image.png" name="Dude H."/>
       <Posts />
     </div>
-    )
+  )
 }
 
 export default Profile;
