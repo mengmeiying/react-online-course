@@ -19,6 +19,7 @@ ul {
 
 .app_wrapper_content {
   grid-area: content;
+  padding: 20px 30px;
   
   background-color:	#c6eee7;
 }
