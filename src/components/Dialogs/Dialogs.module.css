@@ -16,29 +16,9 @@
     border-right: 1px solid lightgray;
 }
 
-.names_item:not(:last-child) {
-    margin-bottom: 15px;
-}
 
-.names_item.active {
-    font-weight: bold;
-}
 
-.chat {
+.chat_list {
     
 }
 
-.message {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.avatar {
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
-}
-
-.text {
-    margin: 0;
-}

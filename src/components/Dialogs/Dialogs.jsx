@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Dialogs.module.css";
+import Message from "./Message/Message";
+import NamesItem from "./NamesItem/NamesItem";
 
 const Dialogs = () => {
     return (
@@ -7,18 +9,18 @@ const Dialogs = () => {
             <h1 className={styles.heading}>Dialogs</h1>
             <div className={styles.wrapper}>
                 <ul className={styles.names_list}>
-                    <li className={`${styles.names_item} ${styles.active}`}><NavLink to="/dialogs/1">Andrew</NavLink></li>
-                    <li className={styles.names_item}><NavLink to="/dialogs/2">Sasha</NavLink></li>
+                    <NamesItem number='1' name="Andrew"/>
+                    <NamesItem number='2' name="Sasha"/>
+                    <NamesItem number='3' name="Nadya"/>
                 </ul>
-                <div className={styles.chat}>
-                    <div className={styles.message}>
-                        <img className={styles.avatar} src="https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png" alt="" />
-                        <p className={styles.text}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
+                <ul className={styles.chat_list}>
+                    <Message src="https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png"
+                            text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
                             aliquid impedit assumenda corrupti commodi temporibus, repellendus sunt a sapiente odit,
-                            nemo laboriosam necessitatibus amet. Debitis provident obcaecati eius aut natus!</p>
-                    </div>
-
-                </div>
+                            nemo laboriosam necessitatibus amet. Debitis provident obcaecati eius aut natus!"/>
+                            <Message src="https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png"
+                            text="Hello world!"/>
+                </ul>
             </div>
 
         </div>
