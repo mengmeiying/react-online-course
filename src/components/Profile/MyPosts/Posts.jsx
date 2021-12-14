@@ -26,23 +26,16 @@ const Posts = () => {
     },
   ]
 
+  let postsElements = postsData.map( post => <Post text={post.text} likes={post.likes} />)
   return (
     <div className={styles.posts}>
       <h2>My posts:</h2>
       <Form />
       <ul className={styles.posts_list}>
-        <li className={styles.post}>
-          <Post text={postsData[0].text} likes={postsData[0].likes} />
-        </li>
-        <li className={styles.post}>
-          <Post text={postsData[1].text} likes={postsData[1].likes} />
-        </li>
-        <li className={styles.post}>
-          <Post text={postsData[2].text} likes={postsData[2].likes} />
-        </li>
-        <li className={styles.post}>
-          <Post text={postsData[3].text} likes={postsData[3].likes} />
-        </li>
+        {/* <li className={styles.post}>
+          
+        </li> */}
+        {postsElements}
       </ul>
     </div>
   )

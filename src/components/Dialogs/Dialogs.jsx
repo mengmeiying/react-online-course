@@ -23,6 +23,8 @@ const Dialogs = () => {
         },
     ];
 
+    let dialogsElements = dialogsData.map( dialog => <NamesItem number={dialog.id} name={dialog.name}/>);
+
     let messagesData = [
         {
             id: 1,
@@ -42,24 +44,17 @@ const Dialogs = () => {
             text: `ok google how to write`
         }
     ]
+
+    let messagesElements = messagesData.map(message => <Message src={message.src} text={message.text}/>)
     return (
         <div>
             <h1 className={styles.heading}>Dialogs</h1>
             <div className={styles.wrapper}>
                 <ul className={styles.names_list}>
-                    <NamesItem number={dialogsData[0].id} name={dialogsData[0].name}/>
-                    <NamesItem number={dialogsData[1].id} name={dialogsData[1].name}/>
-                    <NamesItem number={dialogsData[2].id} name={dialogsData[2].name}/>
-                    <NamesItem number={dialogsData[3].id} name={dialogsData[3].name}/>
+                    {dialogsElements}
                 </ul>
                 <ul className={styles.chat_list}>
-                    <Message src={messagesData[0].src}
-                            text={messagesData[0].text}/>
-                    <Message src={messagesData[1].src}
-                            text={messagesData[1].text}/>
-                    <Message src={messagesData[2].src}
-                            text={messagesData[2].text}/>
-                            
+                    {messagesElements} 
                 </ul>
             </div>
 

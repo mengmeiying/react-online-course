@@ -7,7 +7,7 @@ const Profile = () => {
   return (
     <div>
       <div className={styles.img_wrapper}></div>
-      <ProfileInfo src="https://www.pngarts.com/files/11/Avatar-PNG-Download-Image.png" name="Dude H."/>
+      <ProfileInfo src="https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png" name="Dude H."/>
       <Posts />
     </div>
   )

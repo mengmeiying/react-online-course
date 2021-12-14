@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.post:not(:last-child) {
+    margin-bottom: 20px;
+}
+
 .text {
     margin-right: 10px;
 }
