@@ -1,0 +1,7 @@
+.names_item:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.names_item.active {
+    font-weight: bold;
+}

@@ -1,0 +1,11 @@
+.personal_card {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+}
+
+.personal_photo {
+    margin-right: 30px;
+    width: 200px;
+    height: 200px;
+}
