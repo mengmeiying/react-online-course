@@ -7,6 +7,7 @@ const Form = (props) => {
         e.preventDefault();
 
         props.addPost(newPostElement.current.value);
+        newPostElement.current.value = '';
     }
     return (
         <form className={styles.form}>
