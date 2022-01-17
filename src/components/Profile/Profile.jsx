@@ -8,7 +8,7 @@ const Profile = (props) => {
     <div>
       <div className={styles.img_wrapper}></div>
       <ProfileInfo src="https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png" name="Dude H."/>
-      <Posts postsData={props.state.postsData}/>
+      <Posts postsData={props.state.postsData} addPost={props.addPost}/>
     </div>
   )
 }

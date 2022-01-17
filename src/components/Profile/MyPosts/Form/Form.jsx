@@ -1,12 +1,12 @@
 import styles from "./Form.module.css";
 import React from "react";
 
-const Form = () => {
+const Form = (props) => {
     let newPostElement = React.createRef();
     let onButtonClick = (e) => {
         e.preventDefault();
 
-        alert(newPostElement.current.value);
+        props.addPost(newPostElement.current.value);
     }
     return (
         <form className={styles.form}>

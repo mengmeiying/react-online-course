@@ -9,7 +9,7 @@ const Posts = (props) => {
   return (
     <div className={styles.posts}>
       <h2>My posts:</h2>
-      <Form />
+      <Form addPost={props.addPost}/>
       <ul className={styles.posts_list}>
         {postsElements}
       </ul>
