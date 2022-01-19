@@ -65,6 +65,7 @@ let state = {
                 name: "Nadya"
             },
         ],
+        newMessageText: 'enter text'
     },
 
     navPage: {
@@ -104,5 +105,21 @@ export let addPost = () => {
     rerenderEntireTree(state);
     updateNewPostText('');
 };
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
+    rerenderEntireTree(state);
+}
+
+export let addMessage = () => {
+    let newMessage = {
+        id: 4,
+        src: `https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png`,
+        text: state.dialogsPage.newMessageText
+    }
+    state.dialogsPage.messagesData.push(newMessage);
+    rerenderEntireTree(state);
+    updateNewMessageText('');
+}
 
 export default state;

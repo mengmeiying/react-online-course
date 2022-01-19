@@ -9,8 +9,14 @@ const Dialogs = (props) => {
     let messagesElements = props.state.messagesData.map(message => <Message src={message.src} text={message.text}/>);
 
     let newMessageElement = React.createRef();
-    let onButtonClick = () => {
-        alert(newMessageElement.current.value)
+    let addMessage = () => {
+        props.addMessage();
+        debugger;
+    }
+
+    let onMessageChange = () => {
+        let text = newMessageElement.current.value;
+        props.updateNewMessageText(text);
     }
 
     return (
@@ -24,8 +30,8 @@ const Dialogs = (props) => {
                 <ul className={styles.chat_list}>
                     {messagesElements} 
                 </ul>
-                <textarea ref={newMessageElement} cols="30" rows="10"></textarea>
-                <button onClick={onButtonClick}>Send</button>
+                <textarea onChange={onMessageChange} ref={newMessageElement} cols="30" rows="10" value={props.state.newMessageText}></textarea>
+                <button onClick={addMessage}>Send</button>
                 </div>
                 
             </div>
