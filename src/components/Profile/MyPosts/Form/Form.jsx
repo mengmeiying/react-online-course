@@ -3,16 +3,25 @@ import React from "react";
 
 const Form = (props) => {
     let newPostElement = React.createRef();
-    let onButtonClick = (e) => {
+    let addPost = (e) => {
         e.preventDefault();
-
-        props.addPost(newPostElement.current.value);
-        newPostElement.current.value = '';
+        props.addPost();
     }
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
+    }
+
     return (
         <form className={styles.form}>
-            <textarea ref={newPostElement} className={styles.textarea} name="post" id="1" cols="30" rows="5" placeholder="Enter your post"></textarea>
-            <button onClick={onButtonClick} className={styles.submit} type="submit">Submit</button>
+            <textarea ref={newPostElement}
+                className={styles.textarea}
+                name="post" id="1" cols="30" rows="5"
+                placeholder="Enter your post"
+                value={props.newPostText}
+                onChange={onPostChange}></textarea>
+            <button onClick={addPost} className={styles.submit} type="submit">Submit</button>
         </form>
     );
 }
