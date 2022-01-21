@@ -1,4 +1,6 @@
-import rerenderEntireTree from "../render";
+let rerenderEntireTree = () => {
+    
+}
 
 let state = {
     profilePage: {
@@ -89,12 +91,12 @@ let state = {
     }
 };
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 5,
         text: state.profilePage.newPostText,
@@ -102,24 +104,28 @@ export let addPost = () => {
     };
     state.profilePage.postsData.push(newPost);
 
-    rerenderEntireTree(state);
+    rerenderEntireTree();
     updateNewPostText('');
 };
 
-export let updateNewMessageText = (newText) => {
+export const updateNewMessageText = (newText) => {
     state.dialogsPage.newMessageText = newText;
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 }
 
-export let addMessage = () => {
+export const addMessage = () => {
     let newMessage = {
         id: 4,
         src: `https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png`,
         text: state.dialogsPage.newMessageText
     }
     state.dialogsPage.messagesData.push(newMessage);
-    rerenderEntireTree(state);
+    rerenderEntireTree();
     updateNewMessageText('');
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default state;
