@@ -87,43 +87,48 @@ let store = {
             ]
         }
     },
-    getState() {
-        return this._state;
-    },
     _callSubscriber() {
     },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber();
-    },
-    addPost() {
-        let newPost = {
-            id: 5,
-            text: this._state.profilePage.newPostText,
-            likes: 0
-        };
-        this._state.profilePage.postsData.push(newPost);
 
-        this._callSubscriber();
-        this.updateNewPostText('');
-    },
-    updateNewMessageText(newText) {
-        this._state.dialogsPage.newMessageText = newText;
-        this._callSubscriber();
-    },
-    addMessage() {
-        let newMessage = {
-            id: 4,
-            src: `https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png`,
-            text: this._state.dialogsPage.newMessageText
-        }
-        this._state.dialogsPage.messagesData.push(newMessage);
-        this._callSubscriber();
-        this.updateNewMessageText('');
+    getState() {
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                text: this._state.profilePage.newPostText,
+                likes: 0
+            };
+            this._state.profilePage.postsData.push(newPost);
+
+            this._callSubscriber();
+            this._state.profilePage.newPostText = '';
+        }
+        else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber();
+        }
+        else if (action.type === 'ADD-MESSAGE') {
+            let newMessage = {
+                id: 4,
+                src: `https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png`,
+                text: this._state.dialogsPage.newMessageText
+            }
+            this._state.dialogsPage.messagesData.push(newMessage);
+            this._callSubscriber();
+            this._state.dialogsPage.newMessageText = '';
+        }
+        else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+            this._state.dialogsPage.newMessageText = action.newText;
+            this._callSubscriber();
+        }
+    }
+
 }
 
 export default store;
