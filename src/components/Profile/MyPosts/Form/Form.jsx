@@ -1,7 +1,7 @@
 import styles from "./Form.module.css";
 import React from "react";
-import { addPostActionCreator } from "../../../../redux/state";
-import { updateNewPostActionCreator } from "../../../../redux/state";
+import { addPostActionCreator } from "../../../../redux/profileReducer";
+import { updateNewPostActionCreator } from "../../../../redux/profileReducer";
 
 const Form = (props) => {
     let newPostElement = React.createRef();
