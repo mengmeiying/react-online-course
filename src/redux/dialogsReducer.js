@@ -13,7 +13,48 @@ export const updateNewMessageTextActionCreator = (text) => {
     }
 }
 
-export const dialogsReducer = (state, action) => {
+const initialState = {
+    messagesData: [
+        {
+            id: 1,
+            src: `https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png`,
+            text: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
+                aliquid impedit assumenda corrupti commodi temporibus, repellendus sunt a sapiente odit,
+                nemo laboriosam necessitatibus amet. Debitis provident obcaecati eius aut natus!`
+        },
+        {
+            id: 2,
+            src: `https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png`,
+            text: `Hello world`
+        },
+        {
+            id: 3,
+            src: `https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png`,
+            text: `ok google how to write`
+        }
+    ],
+    dialogsData: [
+        {
+            id: 1,
+            name: "Andrew"
+        },
+        {
+            id: 2,
+            name: "Maria"
+        },
+        {
+            id: 3,
+            name: "Alex"
+        },
+        {
+            id: 4,
+            name: "Nadya"
+        },
+    ],
+    newMessageText: 'enter text'
+}
+
+export const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE: {
             let newMessage = {
