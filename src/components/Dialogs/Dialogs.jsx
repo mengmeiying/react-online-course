@@ -2,23 +2,21 @@ import styles from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import NamesItem from "./NamesItem/NamesItem";
 import React from "react";
-import { addMessageActionCreator } from "../../redux/dialogsReducer";
-import { updateNewMessageTextActionCreator } from "../../redux/dialogsReducer";
 
 const Dialogs = (props) => {
-    let dialogsElements = props.state.dialogsData.map( dialog => <NamesItem number={dialog.id} name={dialog.name}/>);
+    let dialogsElements = props.store.getState().dialogsPage.dialogsData.map( dialog => <NamesItem number={dialog.id} name={dialog.name}/>);
+    let messagesElements = props.store.getState().dialogsPage.messagesData.map(message => <Message src={message.src} text={message.text}/>);
 
-    let messagesElements = props.state.messagesData.map(message => <Message src={message.src} text={message.text}/>);
 
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.addMessage();
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.dispatch(updateNewMessageTextActionCreator(text));
+        props.onMessageChange(text);
     }
 
     return (
@@ -32,7 +30,7 @@ const Dialogs = (props) => {
                 <ul className={styles.chat_list}>
                     {messagesElements} 
                 </ul>
-                <textarea onChange={onMessageChange} ref={newMessageElement} cols="30" rows="10" value={props.state.newMessageText}></textarea>
+                <textarea onChange={onMessageChange} ref={newMessageElement} cols="30" rows="10" value={props.newMessageText}></textarea>
                 <button onClick={addMessage}>Send</button>
                 </div>
                 

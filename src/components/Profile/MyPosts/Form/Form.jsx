@@ -1,21 +1,17 @@
 import styles from "./Form.module.css";
 import React from "react";
-import { addPostActionCreator } from "../../../../redux/profileReducer";
-import { updateNewPostActionCreator } from "../../../../redux/profileReducer";
 
 const Form = (props) => {
     let newPostElement = React.createRef();
-    let addPost = (e) => {
+    let onAddPost = (e) => {
         e.preventDefault();
-        props.dispatch(addPostActionCreator());
+        props.addPost();
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostActionCreator(text));
+        props.updateNewPostText(text);
     }
-
-
 
     return (
         <form className={styles.form}>
@@ -25,7 +21,7 @@ const Form = (props) => {
                 placeholder="Enter your post"
                 value={props.newPostText}
                 onChange={onPostChange}></textarea>
-            <button onClick={addPost} className={styles.submit} type="submit">Submit</button>
+            <button onClick={onAddPost} className={styles.submit} type="submit">Submit</button>
         </form>
     );
 }
