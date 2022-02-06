@@ -62,13 +62,15 @@ export const dialogsReducer = (state = initialState, action) => {
                 src: `https://www.seekpng.com/png/full/115-1150622_avatar-demo2x-man-avatar-icon-png.png`,
                 text: state.newMessageText
             }
-            state.messagesData.push(newMessage);
-            state.newMessageText = '';
-            return state;
+            let stateCopy = {...state};
+            stateCopy.messagesData = [...state.messagesData, newMessage];
+            stateCopy.newMessageText = '';
+            return stateCopy;
         }
         case UPDATE_NEW_MESSAGE_TEXT: {
-            state.newMessageText = action.newText;
-            return state;
+            let stateCopy = {...state};
+            stateCopy.newMessageText = action.newText;
+            return stateCopy;
         }
         default:
             return state;

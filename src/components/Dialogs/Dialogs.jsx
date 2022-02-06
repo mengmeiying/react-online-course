@@ -4,8 +4,8 @@ import NamesItem from "./NamesItem/NamesItem";
 import React from "react";
 
 const Dialogs = (props) => {
-    let dialogsElements = props.store.getState().dialogsPage.dialogsData.map( dialog => <NamesItem number={dialog.id} name={dialog.name}/>);
-    let messagesElements = props.store.getState().dialogsPage.messagesData.map(message => <Message src={message.src} text={message.text}/>);
+    let dialogsElements = props.store.getState().dialogsPage.dialogsData.map( dialog => <NamesItem number={dialog.id} name={dialog.name} key={dialog.id}/>);
+    let messagesElements = props.store.getState().dialogsPage.messagesData.map(message => <Message src={message.src} text={message.text} key={message.id}/>);
 
 
     let newMessageElement = React.createRef();
