@@ -11,6 +11,7 @@ const Navbar = (props) => {
         <li><NavLink className={navData => navData.isActive ? (styles.active + " " + styles.link) : styles.link} to="/profile">Profile</NavLink></li>
         <li><NavLink className={navData => navData.isActive ? (styles.active + " " + styles.link) : styles.link} to="/music">Music</NavLink></li>
         <li><NavLink className={navData => navData.isActive ? (styles.active + " " + styles.link) : styles.link} to="/settings">Settings</NavLink></li>
+        <li><NavLink className={navData => navData.isActive ? (styles.active + " " + styles.link) : styles.link} to="/users">Users</NavLink></li>
       </ul>
       <Friends state={props.state}/>
     </nav>
