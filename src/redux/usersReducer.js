@@ -1,16 +1,25 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
+const SET_USERS = 'SET-USERS';
 
-export const addPostActionCreator = () => {
+export const followActionCreator = (userID) => {
     return {
-        type: ADD_POST
+        type: FOLLOW,
+        userID
     }
 }
 
-export const updateNewPostActionCreator = (text) => {
+export const unfollowActionCreator = (userID) => {
     return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
+        type: UNFOLLOW,
+        userID
+    }
+}
+
+export const setUsersActionCreator = (users) => {
+    return {
+        type: SET_USERS,
+        users
     }
 }
 
@@ -66,11 +75,32 @@ const initialState = {
 
 export const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST: {
-
+        case FOLLOW: {
+            return {
+                ...state,
+                users: state.users.map(u => {
+                    if (u.id === action.userID) {
+                        return {...u, followed = true};
+                    }
+                    return u;
+                })
+            }
         }
-        case UPDATE_NEW_POST_TEXT: {
-
+        case UNFOLLOW: {
+            return {
+                ...state,
+                users: state.users.map(u => {
+                    if (u.id !== action.userID) {
+                        return {...u, followed = false};
+                    }
+                    return u;
+                })
+            }
+        }
+        case SET_USERS: {
+            return {
+                ...state, users: [...state.users, ...action.users]
+            }
         }
         default:
             return state;
