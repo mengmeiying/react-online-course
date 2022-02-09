@@ -28,13 +28,13 @@ const initialState = {
         {
             id: 1,
             name: `maria`,
-            status: 'hello',
+            status: ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             location: {
                 city: 'Moscow',
                 country: "Russia"
             },
             followed: true,
-            avatarSrc: 'some src'
+            avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
         },
         {
             id: 2,
@@ -44,8 +44,8 @@ const initialState = {
                 city: 'Moscow',
                 country: "Russia"
             },
-            followed: true,
-            avatarSrc: 'some src'
+            followed: false,
+            avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
         },
         {
             id: 3,
@@ -56,7 +56,7 @@ const initialState = {
                 country: "Russia"
             },
             followed: true,
-            avatarSrc: 'some src'
+            avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
         },
         {
             id: 4,
@@ -66,8 +66,8 @@ const initialState = {
                 city: 'Moscow',
                 country: "Russia"
             },
-            followed: true,
-            avatarSrc: 'some src'
+            followed: false,
+            avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
         },
 
     ]
@@ -78,7 +78,7 @@ export const usersReducer = (state = initialState, action) => {
         case FOLLOW: {
             return {
                 ...state,
-                users: state.users.map(u => {
+                usersData: state.usersData.map(u => {
                     if (u.id === action.userID) {
                         return {...u, followed: true};
                     }
@@ -89,8 +89,8 @@ export const usersReducer = (state = initialState, action) => {
         case UNFOLLOW: {
             return {
                 ...state,
-                users: state.users.map(u => {
-                    if (u.id !== action.userID) {
+                usersData: state.usersData.map(u => {
+                    if (u.id === action.userID) {
                         return {...u, followed: false};
                     }
                     return u;
@@ -99,7 +99,7 @@ export const usersReducer = (state = initialState, action) => {
         }
         case SET_USERS: {
             return {
-                ...state, users: [...state.users, ...action.users]
+                ...state, usersData: [...state.usersData, ...action.usersData]
             }
         }
         default:
