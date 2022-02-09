@@ -16,61 +16,15 @@ export const unfollowActionCreator = (userID) => {
     }
 }
 
-export const setUsersActionCreator = (users) => {
+export const setUsersActionCreator = (usersData) => {
     return {
         type: SET_USERS,
-        users
+        usersData
     }
 }
 
 const initialState = {
-    usersData: [
-        {
-            id: 1,
-            name: `maria`,
-            status: ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            location: {
-                city: 'Moscow',
-                country: "Russia"
-            },
-            followed: true,
-            avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
-        },
-        {
-            id: 2,
-            name: `maria`,
-            status: 'hello',
-            location: {
-                city: 'Moscow',
-                country: "Russia"
-            },
-            followed: false,
-            avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
-        },
-        {
-            id: 3,
-            name: `maria`,
-            status: 'hello',
-            location: {
-                city: 'Moscow',
-                country: "Russia"
-            },
-            followed: true,
-            avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
-        },
-        {
-            id: 4,
-            name: `maria`,
-            status: 'hello',
-            location: {
-                city: 'Moscow',
-                country: "Russia"
-            },
-            followed: false,
-            avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
-        },
-
-    ]
+    usersData: []
 }
 
 export const usersReducer = (state = initialState, action) => {
