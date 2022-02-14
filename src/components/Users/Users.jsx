@@ -1,54 +1,13 @@
+import axios from "axios";
 import styles from "./Users.module.css"
+import userImage from "./../../assets/images/userImage.png";
 
 const Users = (props) => {
     if (props.usersData.length === 0) {
-        props.setUsers([
-            {
-                id: 1,
-                name: `maria`,
-                status: ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                location: {
-                    city: 'Moscow',
-                    country: "Russia"
-                },
-                followed: true,
-                avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
-            },
-            {
-                id: 2,
-                name: `maria`,
-                status: 'hello',
-                location: {
-                    city: 'Moscow',
-                    country: "Russia"
-                },
-                followed: false,
-                avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
-            },
-            {
-                id: 3,
-                name: `maria`,
-                status: 'hello',
-                location: {
-                    city: 'Moscow',
-                    country: "Russia"
-                },
-                followed: true,
-                avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
-            },
-            {
-                id: 4,
-                name: `maria`,
-                status: 'hello',
-                location: {
-                    city: 'Moscow',
-                    country: "Russia"
-                },
-                followed: false,
-                avatarSrc: 'https://teachingandlearning.schulich.yorku.ca/wp-content/uploads/2019/10/avatar6.png'
-            },
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            props.setUsers(response.data.items);
+        });
 
-        ]);
     }
     return (
         <div>
@@ -56,7 +15,7 @@ const Users = (props) => {
                 props.usersData.map(u =>
                     <div className={styles.user} key={u.id}>
                         <div className={styles.leftBlock}>
-                            <img className={styles.avatar} src={u.avatarSrc} alt="" />
+                            <img className={styles.avatar} src={u.photos.small !== null ? u.photos.small : userImage} alt="" />
                             {
                                 u.followed
                                     ? <button className={styles.follow} onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
@@ -67,8 +26,8 @@ const Users = (props) => {
                             <div className={styles.top}>
                                 <h3 className={styles.userName}>{u.name}</h3>
                                 <div>
-                                    <p>{u.location.city},</p>
-                                    <p>{u.location.country}</p>
+                                    <p>moscow,</p>
+                                    <p>russia</p>
                                 </div>
                             </div>
                             <div>
