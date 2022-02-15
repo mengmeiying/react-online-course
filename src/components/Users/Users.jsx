@@ -3,12 +3,15 @@ import styles from "./Users.module.css"
 import userImage from "./../../assets/images/userImage.png";
 
 const Users = (props) => {
-    if (props.usersData.length === 0) {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-            props.setUsers(response.data.items);
-        });
-
+    let getUsers = () => {
+        if (props.usersData.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+                props.setUsers(response.data.items);
+            });
+    
+        }
     }
+    
     return (
         <div>
             {
@@ -36,6 +39,7 @@ const Users = (props) => {
                         </div>
                     </div>)
             }
+            <button onClick={getUsers}>Get users</button>
         </div>
     )
 }
